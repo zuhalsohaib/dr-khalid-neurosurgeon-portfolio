@@ -1,26 +1,208 @@
 import { useState } from "react";
-import { ArrowUpRight, CalendarDays, CheckCircle2, Clock3, MapPin, Phone } from "lucide-react";
+import {
+  ArrowUpRight,
+  CalendarDays,
+  CheckCircle2,
+  Clock3,
+  MapPin,
+  Phone,
+} from "lucide-react";
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", phone: "", date: "", method: "Phone", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    date: "",
+    method: "Phone",
+    message: "",
+  });
   const [sent, setSent] = useState(false);
-  const update = (event) => { setForm({ ...form, [event.target.name]: event.target.value }); setSent(false); };
-  const submit = (event) => { event.preventDefault(); setSent(true); };
-  return <section id="contact" className="scroll-mt-28 px-4 py-20 sm:px-8 lg:py-28">
-    <div className="mx-auto max-w-7xl">
-      <div className="contact-banner relative overflow-hidden rounded-[2rem] bg-[#082b36] p-7 text-white sm:p-10 lg:p-14"><div className="pointer-events-none absolute -right-16 -top-24 h-80 w-80 rounded-full bg-teal-400/20 blur-3xl"/><div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end"><div><p className="text-xs font-extrabold uppercase tracking-[.22em] text-teal-200">Rifah Medical Complex · Kabul</p><h2 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">Your next step starts with a <span className="text-teal-200">conversation.</span></h2><p className="mt-5 max-w-2xl leading-8 text-slate-300">For appointment inquiries, contact the clinic directly. Please confirm appointment availability and clinic hours by phone.</p></div><a href="tel:+93787654751" className="inline-flex w-fit items-center gap-3 rounded-xl bg-teal-200 px-5 py-4 font-extrabold text-[#082b36] transition hover:-translate-y-1 hover:bg-white"><Phone size={18}/> Call the clinic <ArrowUpRight size={17}/></a></div></div>
-      <div className="mt-6 grid gap-6 lg:grid-cols-[.8fr_1.2fr]">
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-          <a href="tel:+93787654751" className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white/80 p-5 transition hover:border-teal-400 dark:border-white/10 dark:bg-white/[.035]"><span className="grid h-12 w-12 place-items-center rounded-xl bg-teal-500/10 text-teal-700 dark:text-teal-300"><Phone size={21}/></span><span><span className="block text-xs font-bold uppercase tracking-wider text-slate-500">Phone</span><span className="mt-1 block font-extrabold">+93 78 765 4751</span></span></a>
-          <a href="https://www.google.com/maps/search/?api=1&query=Rifah+Medical+Complex+Kabul+Afghanistan" target="_blank" rel="noreferrer" className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white/80 p-5 transition hover:border-teal-400 dark:border-white/10 dark:bg-white/[.035]"><span className="grid h-12 w-12 place-items-center rounded-xl bg-teal-500/10 text-teal-700 dark:text-teal-300"><MapPin size={21}/></span><span><span className="block text-xs font-bold uppercase tracking-wider text-slate-500">Clinic location</span><span className="mt-1 block font-extrabold">Rifah Medical Complex</span><span className="text-sm text-slate-500 dark:text-slate-400">Kabul, Afghanistan</span></span><ArrowUpRight size={17} className="ml-auto shrink-0"/></a>
-          <div className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white/80 p-5 dark:border-white/10 dark:bg-white/[.035]"><span className="grid h-12 w-12 place-items-center rounded-xl bg-teal-500/10 text-teal-700 dark:text-teal-300"><Clock3 size={21}/></span><span><span className="block text-xs font-bold uppercase tracking-wider text-slate-500">Clinic hours</span><span className="mt-1 block font-extrabold">Please call to confirm</span></span></div>
+  const update = (event) => {
+    setForm({ ...form, [event.target.name]: event.target.value });
+    setSent(false);
+  };
+  const submit = (event) => {
+    event.preventDefault();
+    setSent(true);
+  };
+  return (
+    <section id="contact" className="scroll-mt-28 px-4 py-20 sm:px-8 lg:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="contact-banner relative overflow-hidden rounded-[2rem] bg-[#082b36] p-7 text-white sm:p-10 lg:p-14">
+          <div className="pointer-events-none absolute -right-16 -top-24 h-80 w-80 rounded-full bg-teal-400/20 blur-3xl" />
+          <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-[.22em] text-teal-200">
+                Rifah Medical Complex · Kabul
+              </p>
+              <h2 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+                Your next step starts with a{" "}
+                <span className="text-teal-200">conversation.</span>
+              </h2>
+              <p className="mt-5 max-w-2xl leading-8 text-slate-300">
+                For appointment inquiries, contact the clinic directly. Please
+                confirm appointment availability and clinic hours by phone.
+              </p>
+            </div>
+            <a
+              href="tel:+93787654751"
+              className="inline-flex w-fit items-center gap-3 rounded-xl bg-teal-200 px-5 py-4 font-extrabold text-[#082b36] transition hover:-translate-y-1 hover:bg-white"
+            >
+              <Phone size={18} /> Call the clinic <ArrowUpRight size={17} />
+            </a>
+          </div>
         </div>
-        <form onSubmit={submit} className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm dark:border-white/10 dark:bg-white/[.035] sm:p-8"><div className="flex items-start gap-3"><span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-teal-500/10 text-teal-700 dark:text-teal-300"><CalendarDays size={21}/></span><div><h3 className="font-display text-2xl font-extrabold">Appointment request</h3><p className="mt-1 text-sm leading-6 text-slate-500 dark:text-slate-400">Demo form for this portfolio project — it does not send or store patient information.</p></div></div>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2"><label className="block text-sm font-bold">Patient name<input required name="name" value={form.name} onChange={update} placeholder="Your name" className="form-field mt-2" autoComplete="name"/></label><label className="block text-sm font-bold">Phone number<input required name="phone" value={form.phone} onChange={update} placeholder="Your contact number" className="form-field mt-2" autoComplete="tel" type="tel"/></label><label className="block text-sm font-bold">Preferred date<input name="date" value={form.date} onChange={update} type="date" min={new Date().toISOString().slice(0,10)} className="form-field mt-2"/></label><label className="block text-sm font-bold">Preferred contact method<select name="method" value={form.method} onChange={update} className="form-field mt-2"><option>Phone</option><option>WhatsApp</option></select></label><label className="block text-sm font-bold sm:col-span-2">Optional message<textarea name="message" value={form.message} onChange={update} rows="3" placeholder="Anything you would like the clinic to know" className="form-field mt-2 resize-y"/></label></div>
-          <button type="submit" className="mt-5 inline-flex items-center gap-2 rounded-xl bg-teal-600 px-5 py-3.5 text-sm font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500">Submit demo request <ArrowUpRight size={17}/></button>
-          {sent && <p role="status" className="mt-4 flex items-start gap-2 rounded-xl border border-teal-500/30 bg-teal-500/10 p-4 text-sm leading-6 text-teal-800 dark:text-teal-200"><CheckCircle2 size={18} className="mt-0.5 shrink-0"/> Demo submitted successfully. This is only a front-end demonstration; please call the clinic to make a real appointment.</p>}
-        </form>
+        <div className="mt-6 grid gap-6 lg:grid-cols-[.8fr_1.2fr]">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+            <a
+              href="tel:+93787654751"
+              className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white/80 p-5 transition hover:border-teal-400 dark:border-white/10 dark:bg-white/[.035]"
+            >
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-teal-500/10 text-teal-700 dark:text-teal-300">
+                <Phone size={21} />
+              </span>
+              <span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Phone
+                </span>
+                <span className="mt-1 block font-extrabold">
+                  +93 78 765 4751
+                </span>
+              </span>
+            </a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Rifah+Medical+Complex+Kabul+Afghanistan"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white/80 p-5 transition hover:border-teal-400 dark:border-white/10 dark:bg-white/[.035]"
+            >
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-teal-500/10 text-teal-700 dark:text-teal-300">
+                <MapPin size={21} />
+              </span>
+              <span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Clinic location
+                </span>
+                <span className="mt-1 block font-extrabold">
+                  Rifah Medical Complex
+                </span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">
+                  Kabul, Afghanistan
+                </span>
+              </span>
+              <ArrowUpRight size={17} className="ml-auto shrink-0" />
+            </a>
+            <div className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white/80 p-5 dark:border-white/10 dark:bg-white/[.035]">
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-teal-500/10 text-teal-700 dark:text-teal-300">
+                <Clock3 size={21} />
+              </span>
+              <span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Clinic hours
+                </span>
+                <span className="mt-1 block font-extrabold">
+                  Please call to confirm
+                </span>
+              </span>
+            </div>
+          </div>
+          <form
+            onSubmit={submit}
+            className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm dark:border-white/10 dark:bg-white/[.035] sm:p-8"
+          >
+            <div className="flex items-start gap-3">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-teal-500/10 text-teal-700 dark:text-teal-300">
+                <CalendarDays size={21} />
+              </span>
+              <div>
+                <h3 className="font-display text-2xl font-extrabold">
+                  Appointment request
+                </h3>
+              </div>
+            </div>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <label className="block text-sm font-bold">
+                Patient name
+                <input
+                  required
+                  name="name"
+                  value={form.name}
+                  onChange={update}
+                  placeholder="Your name"
+                  className="form-field mt-2"
+                  autoComplete="name"
+                />
+              </label>
+              <label className="block text-sm font-bold">
+                Phone number
+                <input
+                  required
+                  name="phone"
+                  value={form.phone}
+                  onChange={update}
+                  placeholder="Your contact number"
+                  className="form-field mt-2"
+                  autoComplete="tel"
+                  type="tel"
+                />
+              </label>
+              <label className="block text-sm font-bold">
+                Preferred date
+                <input
+                  name="date"
+                  value={form.date}
+                  onChange={update}
+                  type="date"
+                  min={new Date().toISOString().slice(0, 10)}
+                  className="form-field mt-2"
+                />
+              </label>
+              <label className="block text-sm font-bold">
+                Preferred contact method
+                <select
+                  name="method"
+                  value={form.method}
+                  onChange={update}
+                  className="form-field mt-2"
+                >
+                  <option>Phone</option>
+                  <option>WhatsApp</option>
+                </select>
+              </label>
+              <label className="block text-sm font-bold sm:col-span-2">
+                Optional message
+                <textarea
+                  name="message"
+                  value={form.message}
+                  onChange={update}
+                  rows="3"
+                  placeholder="Anything you would like the clinic to know"
+                  className="form-field mt-2 resize-y"
+                />
+              </label>
+            </div>
+            <button
+              type="submit"
+              className="mt-5 inline-flex items-center gap-2 rounded-xl bg-teal-600 px-5 py-3.5 text-sm font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-teal-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500"
+            >
+              Submit demo request <ArrowUpRight size={17} />
+            </button>
+            {sent && (
+              <p
+                role="status"
+                className="mt-4 flex items-start gap-2 rounded-xl border border-teal-500/30 bg-teal-500/10 p-4 text-sm leading-6 text-teal-800 dark:text-teal-200"
+              >
+                <CheckCircle2 size={18} className="mt-0.5 shrink-0" /> Demo
+                submitted successfully. This is only a front-end demonstration;
+                please call the clinic to make a real appointment.
+              </p>
+            )}
+          </form>
+        </div>
+        <p className="mt-6 text-center text-xs leading-5 text-slate-500 dark:text-slate-400">
+          This website is informational and is not an emergency service. For
+          urgent medical concerns, seek local emergency care.
+        </p>
       </div>
-      <p className="mt-6 text-center text-xs leading-5 text-slate-500 dark:text-slate-400">This website is informational and is not an emergency service. For urgent medical concerns, seek local emergency care.</p>
-    </div>
-  </section>;
+    </section>
+  );
 }
